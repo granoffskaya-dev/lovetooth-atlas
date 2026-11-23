@@ -102,4 +102,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .tools { top: auto; bottom: 80px; transform: none; left: 14px; }
   .panel { border-left: 0; }
 }
+.more { display: none; }
+@media (max-width: 700px) {
+  .stage { height: auto; }
+  .viewport { flex: none; height: min(92vw, 56vh); }
+  .caption { bottom: 30px; font-size: 14px; }
+  .hint { display: none; }
+  .tools { bottom: 70px; }
+  .more { display: block; margin: 4px 16px 16px; padding: 13px; border-radius: 12px; background: var(--paper); border: 1px solid var(--line); color: var(--lilac); font-weight: 700; text-align: center; box-shadow: 0 6px 18px -12px rgba(15,70,120,.4); }
+}
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

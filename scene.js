@@ -428,7 +428,10 @@ export function createScene(canvas) {
   function resize() {
     const r = canvas.parentElement.getBoundingClientRect();
     renderer.setSize(r.width, r.height, false);
-    camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+    camera.aspect = r.width / r.height;
+    // на узком экране расширяем угол обзора, чтобы модель целиком помещалась по ширине
+    camera.fov = camera.aspect < 1.4 ? THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(16)) * 1.4 / camera.aspect)) : 32;
+    camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(canvas.parentElement);
   resize();
@@ -436,7 +439,7 @@ export function createScene(canvas) {
   // Миниатюры: каждое состояние в финале, снятое тем же рендером.
   function thumbnails(items) {
     const size = renderer.getSize(new THREE.Vector2());
-    renderer.setSize(480, 320, false); camera.aspect = 1.5; camera.updateProjectionMatrix();
+    renderer.setSize(480, 320, false); camera.aspect = 1.5; camera.fov = 32; camera.updateProjectionMatrix();
     const out = {};
     for (const it of items) {
       apply(it); st.update(1);

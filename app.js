@@ -71,6 +71,7 @@ $('#zout').onclick = () => atlas.zoom(-1);
 $('#spin').onclick = (e) => e.currentTarget.classList.toggle('on', atlas.toggleRotate());
 $('#mouth').onclick = (e) => e.currentTarget.classList.toggle('on', atlas.toggleMouth());
 $('#replay').onclick = () => atlas.replay();
+$('#more').onclick = () => $('#panel').scrollIntoView();
 
 let tt;
 function toast(msg) {

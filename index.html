@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoveTooth — 3D-атлас стоматологических услуг (демо)</title>
+<link rel="icon" href="favicon.png">
+<meta name="description" content="Демо-концепция: страница услуг стоматологии в формате 3D-атласа. Брекеты, элайнеры, коронки, импланты — в 3D, с вращением.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/build/three.module.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <a class="brand" href="#metal" aria-label="LoveTooth — на главную">
+      <img src="logo.png" alt="LoveTooth" width="529" height="560">
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы атласа"></nav>
+    <div class="side-card">
+      <p class="side-card-title">3D-диагностика</p>
+      <p>Сканируем зубы и показываем результат лечения до его начала.</p>
+      <button data-demo>Узнать подробнее</button>
+    </div>
+    <p class="demo-note">Демо-проект для портфолио. Клиника вымышленная, информация ознакомительная.</p>
+  </aside>
+
+  <main class="stage">
+    <div class="strip" id="strip" aria-label="Варианты в разделе"></div>
+    <div class="viewport">
+      <canvas id="c" aria-label="3D-модель зубов, можно вращать мышью"></canvas>
+      <div class="tools" role="toolbar" aria-label="Управление моделью">
+        <button id="zin" aria-label="Приблизить" title="Приблизить"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button id="zout" aria-label="Отдалить" title="Отдалить"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
+        <button id="spin" aria-label="Автовращение" title="Автовращение"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4"/></svg></button>
+        <button id="mouth" aria-label="Открыть или закрыть челюсти" title="Открыть / закрыть"><svg viewBox="0 0 24 24"><path d="M4 9c4-3 12-3 16 0M4 15c4 3 12 3 16 0"/></svg></button>
+        <button id="replay" aria-label="Повторить сборку" title="Повторить сборку"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      </div>
+      <p class="caption" id="caption"></p>
+      <p class="hint">Потяните, чтобы повернуть · колесо — масштаб · ← → — листать</p>
+    </div>
+  </main>
+
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<div class="loader">Собираем модель…</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

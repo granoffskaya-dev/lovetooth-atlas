@@ -104,8 +104,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .more { display: none; }
 @media (max-width: 700px) {
+  /* шапка: логотип слева, разделы столбиком справа */
+  .side { display: grid; grid-template-columns: auto 1fr; gap: 12px 18px; padding: 14px 16px 12px; }
+  .brand { padding: 0; }
+  .brand img { height: 92px; }
+  .nav { flex-direction: column; gap: 7px; }
+  .nav-head { padding: 7px 8px 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); font-size: 14px; box-shadow: 0 4px 12px -10px rgba(15,70,120,.5); }
+  .nav-sec.open .nav-head { background: linear-gradient(135deg, var(--lilac-2), var(--lilac)); border-color: transparent; color: #fff; }
+  .nav-sec.open .nav-head em { background: rgba(255,255,255,.22); color: #fff; }
+  .demo-note { grid-column: 1 / -1; font-size: 10.5px; padding: 0; }
   .stage { height: auto; }
-  .viewport { flex: none; height: min(92vw, 56vh); }
+  .strip { padding-top: 14px; }
+  .viewport { flex: none; height: min(92vw, 56vh); margin-top: 14px; }
   .caption { bottom: 30px; font-size: 14px; }
   .hint { display: none; }
   .tools { bottom: 70px; }

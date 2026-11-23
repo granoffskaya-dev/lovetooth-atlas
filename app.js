@@ -1,5 +1,5 @@
-import { SECTIONS, ITEMS } from './data.js';
-import { createScene } from './scene.js';
+import { SECTIONS, ITEMS } from './data.js?v=3';
+import { createScene } from './scene.js?v=3';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
